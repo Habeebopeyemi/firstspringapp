@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>List Staff Page</h1>
+    <a th:href="@{/Staff/create}">Create New Staff</a>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>AGE</th>
+            <th>Action</th>
+        </tr>
+        <tr th:each="staff : ${staffs}">
+            <td th:text="${staff.id}">1</td>
+            <td th:text="${staff.name}">John</td>
+            <td th:text="${staff.age}">23</td>
+            <td>
+                <a th:href="@{/Staff/view(id=${staff.id})}">View</a> |
+                <a th:href="@{/Staff/edit/{id}(id = ${staff.id})}">Edit</a> |
+                <a href="">Delete</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
