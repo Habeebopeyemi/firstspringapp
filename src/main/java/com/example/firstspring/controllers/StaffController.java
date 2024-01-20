@@ -100,23 +100,23 @@ public class StaffController {
 
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     public ModelAndView update(Staff staff, @PathVariable(value = "id") long id){
-        ModelAndView listModelAndView = new ModelAndView();
         staff.setId(id);
         staffServicesVar.updateStaff(staff);
-        List<Staff> editedList = staffServicesVar.getAllStaff();
-        listModelAndView.setViewName("staff/list");
-        listModelAndView.addObject("staffs", editedList);
-        return listModelAndView;
+        return renderUpdatedUI();
     }
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
     public ModelAndView delete(Staff staff, @PathVariable(value = "id") long id){
         staff.setId(id);
         staffServicesVar.deleteStaff(staff);
-        return null;
+        return renderUpdatedUI();
     }
 
 //utility method to help and update the UI after any mutation
     protected ModelAndView renderUpdatedUI(){
-        return null;
+        ModelAndView listModelAndView = new ModelAndView();
+        List<Staff> editedList = staffServicesVar.getAllStaff();
+        listModelAndView.setViewName("staff/list");
+        listModelAndView.addObject("staffs", editedList);
+        return listModelAndView;
     }
 }
