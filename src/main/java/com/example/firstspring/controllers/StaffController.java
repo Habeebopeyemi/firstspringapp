@@ -105,7 +105,8 @@ public class StaffController {
         return renderUpdatedUI();
     }
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
-    public ModelAndView delete(Staff staff, @PathVariable(value = "id") long id){
+    public ModelAndView delete(@PathVariable(value = "id") long id){
+        Staff staff = new Staff();
         staff.setId(id);
         staffServicesVar.deleteStaff(staff);
         return renderUpdatedUI();
