@@ -21,7 +21,11 @@
             <td>
                 <a th:href="@{/Staff/view(id=${staff.id})}">View</a> |
                 <a th:href="@{/Staff/edit/{id}(id = ${staff.id})}">Edit</a> |
-                <a href="">Delete</a>
+                <!-- Inside the <td> for delete -->
+                <form th:action="@{/Staff/delete/{id}(id = ${staff.id})}" method="post">
+                    <input type="hidden" name="_method" value="delete" />
+                    <button type="submit">Delete</button>
+                </form>
             </td>
         </tr>
     </table>

@@ -108,6 +108,12 @@ public class StaffController {
         listModelAndView.addObject("staffs", editedList);
         return listModelAndView;
     }
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+    public ModelAndView delete(Staff staff, @PathVariable(value = "id") long id){
+        staff.setId(id);
+        staffServicesVar.deleteStaff(staff);
+        return null;
+    }
 
 //utility method to help and update the UI after any mutation
     protected ModelAndView renderUpdatedUI(){

@@ -40,4 +40,10 @@ public class StaffServicesImp implements StaffServices {
     public void updateStaff(Staff staff) {
         staffRepositoryVar.save(staff);
     }
+
+    @Override
+    public void deleteStaff(Staff staff) {
+        staffRepositoryVar.delete(staff);
+    }
+
 }

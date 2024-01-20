@@ -9,4 +9,5 @@ public interface StaffServices {
     public List<Staff> getAllStaff();
     public Staff getStaff(long id);
     public void updateStaff(Staff staff);
+    public void deleteStaff(Staff staff);
 }
